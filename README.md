@@ -1,0 +1,6 @@
+# Workshop structure
+
+```
+./non-mono
+
+```
