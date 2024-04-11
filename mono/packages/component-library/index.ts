@@ -3,7 +3,7 @@ const template = document.createElement("template");
 template.innerHTML = `
 <style>
 button{
-  background: red;
+  background: hotpink;
   color: white;
 }
 </style>

@@ -1,8 +1,8 @@
 //
 import "./style.css";
-// import { CustomButton } from "component-library";
+import { CustomButton } from "component-library";
 
-// window.customElements.define("custom-button", CustomButton);
+window.customElements.define("custom-button", CustomButton);
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <main>
