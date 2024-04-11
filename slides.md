@@ -7,10 +7,8 @@ layout:cover
 Juho Härme 19.4.2024
 
 ---
-
-# Prerequisites
-
-https://github.com/knowit-finland-javascript-guild/turborepo/blob/main/slides.md
+layout: two-cols
+---
 
 `git clone https://github.com/knowit-finland-javascript-guild/turborepo.git`
 
@@ -39,9 +37,15 @@ cd mon-mono/
 for pkg in */; do cd $pkg && npm install && cd ..;done
 
 ```
----
 
-# Intro
+::right::
+
+
+<v-clicks>
+
+## Intro
+
+</v-clicks>
 
 <v-clicks>
 
@@ -52,16 +56,23 @@ for pkg in */; do cd $pkg && npm install && cd ..;done
 
 </v-clicks>
 
----
+<br/>
 
-# Some of my monorepo story
+<v-clicks>
+
+## Some of my monorepo story
+
+</v-clicks>
 
 <!-- very briefly, but to give the reason for why I'm into this -->
 
 <v-clicks>
 
+
 - over 10 individual repositories
 - common ui elements from 2 different packages
+- general shared code from 2 different packages
+- types from a separate package...
 
 </v-clicks>
 
@@ -73,21 +84,69 @@ layout: fact
 
 ---
 
-## Hands-on 1: using shared packages in a polyrepo
+# Hands-on 1 
 
 <v-clicks>
 
-Exercise 1: make a change to the imported component 
+Make a change to a component imported from an internal package
 
-> the UX team wants the button to be RED! 🤯😳
-a
+
+<div>
+<div class='speech-bubble'>
+
+Please make the button hot pink ☺️
+
+Best wishes,
+UX team
+
+</div>
+
+![Ux team](/avatar-svgrepo-com.svg)
+
+</div>
 
 </v-clicks>
 
-<br/>
+---
+layout: two-cols
+---
+
+
+<div>
+<div class='speech-bubble'>
+
+C'mon, such a small change, it'll be up in a minute?
+
+
+</div>
+
+![Ux team](/avatar-svgrepo-com.svg)
+</div>
+
+
+::right::
 
 <v-clicks>
 
+
+```
+cd front
+npm run dev
+
+.....
+
+├── component-library
+│   ├── ...
+│   ├── index.ts
+├── front
+│   ├── ...
+│   ├── src
+│   │   ├── counter.ts
+│   │   ├── main.ts
+
+```
+
+<br/>
 
 ```
 cd non-mono/component-library/
@@ -104,14 +163,53 @@ npm install ../component-library/component-library-1.0.1.tgz
 </v-clicks>
 
 ---
+layout: fact
+---
 
-## How could a monorepo make this easier?
+# How could a monorepo make this easier?
+
+---
+layout: two-cols
+---
+
+
+Prerequisistes for the next hands-on exercise
+
+<br />
+
+```
+cd mono
+npm install
+
+```
+
+::right::
 
 <v-clicks>
 
-Some important concepts
+## Some important concepts
+
+</v-clicks>
+
+<v-clicks>
 
 - workspace vs root
+
+```
+root
+├── package.json
+├── package-lock.json
+├── node_modules
+├── workspace 1
+│   ├── package.json
+├── workspace 2
+│   ├── package.json
+
+```
+</v-clicks>
+
+<v-clicks>
+
 - internal vs external
 - published vs non-published
 - versioning
@@ -119,9 +217,55 @@ Some important concepts
 
 </v-clicks>
 
+
+
+
+
+
 ---
 
-## Hands-on 2: using shared packages in a monorepo
+# Hands-on 2 
+
+<v-click>
+
+*using shared packages in a monorepo*
+
+</v-click>
+
+<v-clicks>
+
+<div>
+
+<div class='speech-bubble2'>
+Just kidding, make it light blue instead! 😘
+
+Warmest wishes,
+UX
+</div>
+
+![Ux team](/avatar-svgrepo-com.svg)
+
+</div>
+
+</v-clicks>
+
+---
+layout: two-cols
+---
+
+<div>
+
+<div class='speech-bubble2'>
+We might want to change this again in the future...
+</div>
+
+![Ux team](/avatar-svgrepo-com.svg)
+
+</div>
+
+::right::
+
+stuff
 
 ---
 
