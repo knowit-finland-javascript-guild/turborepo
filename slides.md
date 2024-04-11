@@ -269,7 +269,7 @@ We might want to change this again in the future...
 
 
 ```
-cd mono/front
+cd mono/apps/front
 npm run dev
 
 .....
