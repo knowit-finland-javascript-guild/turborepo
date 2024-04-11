@@ -1,3 +1,45 @@
+---
+layout:cover
+---
+
+# JS guild: Monorepos
+
+Juho Härme 19.4.2024
+
+---
+
+# Prerequisites
+
+
+`git clone https://github.com/knowit-finland-javascript-guild/turborepo.git`
+
+
+```
+├── non-mono
+│   ├── back
+│   ├── component-library
+│   ├── front
+│   └── utility-library
+
+```
+<br/>
+
+```bash
+cd back
+npm install
+cd ../component-library
+npm install
+cd ../front
+npm install
+
+# OR just
+
+cd mon-mono/
+for pkg in */; do cd $pkg && npm install && cd ..;done
+
+```
+---
+
 # Intro
 
 <v-clicks>
@@ -13,7 +55,7 @@
 
 # Some of my monorepo story
 
-very briefly, but to give the reason for why I'm into this
+<!-- very briefly, but to give the reason for why I'm into this -->
 
 <v-clicks>
 
@@ -22,6 +64,8 @@ very briefly, but to give the reason for why I'm into this
 
 </v-clicks>
 
+---
+layout: fact
 ---
 
 # The problem with packages in polyrepo
@@ -32,9 +76,17 @@ very briefly, but to give the reason for why I'm into this
 
 <v-clicks>
 
-Exercise 1: make a change to the imported component and see how tedious it is
+Exercise 1: make a change to the imported component 
 
-> UX team wants the button to be RED!
+> the UX team wants the button to be RED! 🤯😳
+a
+
+</v-clicks>
+
+<br/>
+
+<v-clicks>
+
 
 ```
 cd non-mono/component-library/
