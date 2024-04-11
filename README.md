@@ -1,6 +1,1 @@
-# Workshop structure
-
-```
-./non-mono
-
-```
+See slides.md for instructions

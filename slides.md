@@ -10,6 +10,7 @@ Juho Härme 19.4.2024
 
 # Prerequisites
 
+https://github.com/knowit-finland-javascript-guild/turborepo/blob/main/slides.md
 
 `git clone https://github.com/knowit-finland-javascript-guild/turborepo.git`
 
