@@ -33,7 +33,7 @@ npm install
 
 # OR just
 
-cd mon-mono/
+cd non-mono/
 for pkg in */; do cd $pkg && npm install && cd ..;done
 
 ```
@@ -130,7 +130,7 @@ C'mon, such a small change, it'll be up in a minute?
 
 
 ```
-cd front
+cd non-mono/front
 npm run dev
 
 .....
@@ -265,7 +265,36 @@ We might want to change this again in the future...
 
 ::right::
 
-stuff
+<v-clicks>
+
+
+```
+cd mono/front
+npm run dev
+
+.....
+
+├── apps
+│   └── front
+│       ├── src
+│       │   ├── main.ts
+└── packages
+    └── component-library
+        ├── index.ts
+
+```
+
+<br/>
+
+```
+cd mono/packages/component-library
+
+# make changes to button at index.ts
+
+
+```
+
+</v-clicks>
 
 ---
 
