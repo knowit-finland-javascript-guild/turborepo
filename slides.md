@@ -422,11 +422,37 @@ layout: fact
 
 </v-click>
 
+<v-clicks>
+
+### Task: Use turbo to run all the dev tasks with one command
+
+</v-clicks>
+
+<br/>
+
+<v-clicks>
+
+1. Create a file called `turbo.json` at the root level:
+
+```json
+{
+  "pipeline": {
+    "dev": {}
+  }
+}
+
+```
+
+2. run `npx turbo run dev`
+
+
+</v-clicks>
+
+
 
 ---
 
-## Installing a new package
-
+## Task: Install a new package
 
 <v-clicks>
 
@@ -438,17 +464,19 @@ npm install --workspace front cowsay
 
 ```
 
-```bash
-mono@0.0.0 /Users/juhhar/guilds/monorepo/mono
-├─┬ component-library@1.0.0 -> ./packages/component-library
-│ └── typescript@5.4.5
-└─┬ front@0.0.0 -> ./apps/front
-  ├── component-library@1.0.0 deduped -> ./packages/component-library
-  ├── cowsay@1.6.0
-  ├── typescript@5.4.5 deduped
-  └── vite@5.2.8
+- alter the code at `mono/apps/front/src/main.ts` to use 
+
+```ts
+import {say} from 'cowsay'
+
+//...
+
+say({text: "text here"})
 
 ```
+
+instead of just the simple text
+
 
 </v-clicks>
 
@@ -460,39 +488,41 @@ layout: fact
 
 ---
 
+# Recap
+
+<v-clicks>
+
+- Multiple microservices 
+- Multiple shared internal packages used by the services
+- Npm managing the package installation process
+- Turbo (etc) orchestrating the different tasks
+
+
+</v-clicks>
+
+<v-clicks>
+
+## Next steps
+
+</v-clicks>
+
+<v-clicks>
+
+- How to deploy?
+- Publishing the internal packages
+- Sharing configs across the packages
+- Pnpm? Yarn? Bun?
+
+</v-clicks>
 
 ---
-layout: fact
----
-
-# Turbo? Nx? Lerna?
-
----
-
-# Some important concepts
-
-- What is actually happening? Symlinks
-- hoisting packages
-- When does a package reside in app/node_modules? When in root/node_modules?
-- Needing to use something like vite/babel
-- Adding new workspaces
-
----
-
-# Things to consider
-
-- how to install new external packages?
-  - harmonizing
-- editor support
-- converting with git history retained
-
----
-
-## Hands-on 5: Using additional tools
-
-Making running tasks easier with tools like turborepo
 
 # Resources
+
+- https://github.com/vercel/turbo/tree/main/examples
+    - https://github.com/vercel/turbo/tree/main/examples/with-docker
+- https://docs.npmjs.com/cli/v10/using-npm/workspaces
+
 
 <!--
 

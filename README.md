@@ -6,27 +6,34 @@ Juho Härme 19.4.2024
 
 `git clone https://github.com/knowit-finland-javascript-guild/turborepo.git`
 
+
 ```
 ├── non-mono
-│   ├── back
-│   ├── component-library
-│   ├── front
-│   └── utility-library
+├── mono
 
 ```
 
 ```bash
-cd back
-npm install
-cd ../component-library
+cd non-mono
+
+cd component-library
 npm install
 cd ../front
+npm install
+cd ../back
 npm install
 
 # OR just
 
 cd non-mono/
 for pkg in */; do cd $pkg && npm install && cd ..;done
+
+```
+
+```bash
+
+cd non-mono/front
+npm run dev
 
 ```
 
@@ -102,13 +109,51 @@ npm run dev
 
 ```
 
-
 # make changes to button at mono/packages/component-library/index.ts
 
 
 ```
 
-## Installing a new package
+### Running all the microservices in the monorepo
+
+
+```
+# Open a new shell
+
+cd mono/apps/back
+npm run dev
+
+```
+
+
+```
+# Open another new shell
+
+cd mono/packages/utility-library
+npm run dev
+
+```
+
+
+## Hands-on 3: using turborepo
+
+
+
+1. Create a file called `turbo.json` at the root level:
+
+```json
+{
+  "pipeline": {
+    "dev": {}
+  }
+}
+
+```
+
+2. run `npx turbo run dev`
+
+
+### Installing a new package
 
 
 ```bash
@@ -128,10 +173,7 @@ import { say } from "cowsay";
 
 //...
 
-<main>
-<pre>
-${say({ text: "Lets do it!" })}
-</pre>
+${say({ text: resul })}
 
 //...
 
