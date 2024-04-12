@@ -47,6 +47,10 @@ for pkg in */; do cd $pkg && npm install && cd ..;done
 
 </v-clicks>
 
+<!--
+In version-control systems, a monorepo is a software-development strategy in which the code for a number of projects is stored in the same repository.
+-->
+
 <v-clicks>
 
 - Mono? Poly? Monolith? Microservices? Packages?
@@ -297,20 +301,102 @@ cd mono/packages/component-library
 </v-clicks>
 
 ---
+layout: two-cols
+---
 
-# Working in monorepo
+## How does this work?
+
+
+<v-clicks>
+
+```bash
+
+# ./mono
+
+npm ls
+
+mono@0.0.0 /Users/juhhar/guilds/monorepo/mono
+├─┬ component-library@1.0.0 -> ./packages/component-library
+│ └── typescript@5.4.5
+└─┬ front@0.0.0 -> ./apps/front
+  ├── component-library@1.0.0 deduped -> ./packages/component-library
+  ├── typescript@5.4.5 deduped
+  └── vite@5.2.8
+
+
+```
+
+```bash
+
+├── node_modules
+├── apps
+│   └── front
+└── packages
+    └── component-library
+
+```
+
+
+</v-clicks>
+
+::right::
+
+<v-clicks>
+
+```bash
+
+#./node_modules
+
+front@ -> ../apps/front
+component-library@ -> ../packages/component-library
+
+```
+
+</v-clicks>
 
 ---
 
-## Hands-on 3: Installing a new package
+## Installing a new package
+
+
+<v-clicks>
+
+```bash
+
+# ./mono
+
+npm install --workspace front cowsay
+
+```
+
+```bash
+mono@0.0.0 /Users/juhhar/guilds/monorepo/mono
+├─┬ component-library@1.0.0 -> ./packages/component-library
+│ └── typescript@5.4.5
+└─┬ front@0.0.0 -> ./apps/front
+  ├── component-library@1.0.0 deduped -> ./packages/component-library
+  ├── cowsay@1.6.0
+  ├── typescript@5.4.5 deduped
+  └── vite@5.2.8
+
+```
+
+</v-clicks>
+
+---
+layout: fact
+---
+
+❓What happens if you install without `--workspace` ?
 
 ---
 
-## Hands-on 4: Shared configs
 
-- eslint
-- prettier
-- tsconfig
+---
+layout: fact
+---
+
+# Turbo? Nx? Lerna?
 
 ---
 

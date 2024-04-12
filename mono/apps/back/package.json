@@ -1,0 +1,15 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.mjs",
+  "scripts": {
+    "dev": "node --watch index.mjs"
+  },
+  "keywords": [],
+  "author": "Juho Härme",
+  "license": "ISC",
+  "dependencies": {
+    "utility-library": "^1.0.0"
+  }
+}

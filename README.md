@@ -108,6 +108,33 @@ npm run dev
 
 ```
 
-## Hands-on 3: Installing a new package
+## Installing a new package
 
-## Hands-on 4: Using turbo
+
+```bash
+
+# ./mono
+
+npm install --workspace front cowsay
+
+
+```
+
+```ts
+
+// inside mono/apps/front/src/main.ts
+
+import { say } from "cowsay";
+
+//...
+
+<main>
+<pre>
+${say({ text: "Lets do it!" })}
+</pre>
+
+//...
+
+```
+
+

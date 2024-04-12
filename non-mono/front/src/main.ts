@@ -8,7 +8,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <main>
     <form action="" method="get">
       <input type="text" name='source' > 
-      <custom-button text="Translate"  />
+      <custom-button text="Translate"></custom-button>
     </form>
   </main>
 `;

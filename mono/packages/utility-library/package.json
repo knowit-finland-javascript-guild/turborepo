@@ -1,0 +1,16 @@
+{
+  "name": "utility-library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "types": "index.ts",
+  "scripts": {
+    "dev": "tsc --watch index.ts"
+  },
+  "keywords": [],
+  "author": "Juho Härme",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^5.4.5"
+  }
+}
