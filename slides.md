@@ -15,26 +15,31 @@ layout: two-cols
 
 ```
 ├── non-mono
-│   ├── back
-│   ├── component-library
-│   ├── front
-│   └── utility-library
+├── mono
 
 ```
-<br/>
 
 ```bash
-cd back
-npm install
-cd ../component-library
+cd non-mono
+
+cd component-library
 npm install
 cd ../front
+npm install
+cd ../back
 npm install
 
 # OR just
 
 cd non-mono/
 for pkg in */; do cd $pkg && npm install && cd ..;done
+
+```
+
+```bash
+
+cd non-mono/front
+npm run dev
 
 ```
 
@@ -64,7 +69,7 @@ In version-control systems, a monorepo is a software-development strategy in whi
 
 <v-clicks>
 
-## Some of my monorepo story
+## My monorepo story
 
 </v-clicks>
 
@@ -353,6 +358,70 @@ component-library@ -> ../packages/component-library
 ```
 
 </v-clicks>
+
+
+---
+layout: two-cols
+---
+
+## Running all the microservices in the monorepo
+
+<br/>
+
+```
+# Open a new shell
+
+cd mono/apps/back
+npm run dev
+
+```
+
+<br/>
+
+```
+# Open another new shell
+
+cd mono/packages/utility-library
+npm run dev
+
+```
+
+::right::
+
+<v-clicks>
+
+## What do we have?
+
+</v-clicks>
+
+<br>
+
+<v-clicks>
+
+1. UI running at `mono/apps/front` 
+2. API running at `mono/apps/back` 
+3. Utility library running at `mono/packages/utility-library`
+
+
+</v-clicks>
+
+
+---
+layout: fact
+---
+
+# Turbo? Nx? Lerna?
+
+---
+
+# Hands-on 3
+
+<v-click>
+
+*Managing tasks in a monorepo*
+
+</v-click>
+
 
 ---
 

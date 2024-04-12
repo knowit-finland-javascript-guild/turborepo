@@ -19,7 +19,6 @@ export class CustomButton extends HTMLElement {
   }
 
   handleClick() {
-    console.log("juu");
     this.dispatchEvent(
       new CustomEvent("clicked", { bubbles: true, composed: true }),
     );
