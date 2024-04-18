@@ -24,6 +24,7 @@ cd ../back
 npm install
 
 # OR just
+# NOTE: the following only works in BASH, not e.g. powershell
 
 cd non-mono/
 for pkg in */; do cd $pkg && npm install && cd ..;done
@@ -74,6 +75,8 @@ npm pack
 cd ../front
 npm install ../component-library/component-library-1.0.1.tgz
 
+#3. Restart the dev server at ../front
+
 ```
 
 ## Hands-on 2: with a monorepo
@@ -81,7 +84,7 @@ npm install ../component-library/component-library-1.0.1.tgz
 Prerequisistes:
 
 ```
-cd mono
+cd ../mono
 npm install
 
 ```
@@ -92,7 +95,7 @@ npm install
 > UX
 
 ```
-cd mono/apps/front
+cd apps/front
 npm run dev
 
 .....
@@ -109,7 +112,7 @@ npm run dev
 
 ```
 
-# make changes to button at mono/packages/component-library/index.ts
+# make changes to button component-library/index.ts
 
 
 ```
@@ -129,7 +132,7 @@ npm run dev
 ```
 # Open another new shell
 
-cd mono/packages/utility-library
+cd packages/utility-library
 npm run dev
 
 ```
@@ -138,8 +141,10 @@ npm run dev
 ## Hands-on 3: using turborepo
 
 
+Shut down the `npm run dev` processes that were spun up in the previous step.
 
-1. Create a file called `turbo.json` at the root level:
+
+1. Create a file called `turbo.json` at the root level (`./mono`):
 
 ```json
 {
@@ -173,7 +178,7 @@ import { say } from "cowsay";
 
 //...
 
-${say({ text: resul })}
+output.textContent = say({ text: json.result });
 
 //...
 

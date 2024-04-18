@@ -30,6 +30,7 @@ cd ../back
 npm install
 
 # OR just
+# NOTE: the following only works in BASH, not e.g. powershell
 
 cd non-mono/
 for pkg in */; do cd $pkg && npm install && cd ..;done
@@ -90,6 +91,49 @@ layout: fact
 ---
 
 # The problem with packages in polyrepo
+
+---
+
+## Project structure at ./non-mono
+
+<br>
+
+<v-clicks>
+
+- Front end running at `/non-mono/front`
+- Imports a `CustomButton` component from a package called `component-library`
+
+</v-clicks>
+
+<v-clicks>
+
+```json
+{
+  "name": "front",
+  ...
+  "dependencies": {
+    "component-library": "file:../component-library/component-library-1.0.0.tgz"
+  }
+}
+
+```
+
+
+
+```ts 
+
+
+// src/main.ts
+import "./style.css";
+import { CustomButton } from "component-library";
+
+
+
+```
+
+
+</v-clicks>
+
 
 ---
 
@@ -187,7 +231,7 @@ Prerequisistes for the next hands-on exercise
 <br />
 
 ```
-cd mono
+cd ../mono
 npm install
 
 ```
@@ -278,7 +322,7 @@ We might want to change this again in the future...
 
 
 ```
-cd mono/apps/front
+cd apps/front
 npm run dev
 
 .....
@@ -296,9 +340,9 @@ npm run dev
 <br/>
 
 ```
-cd mono/packages/component-library
 
-# make changes to button at index.ts
+# make changes to button at 
+# packages/component-library/index.ts
 
 
 ```
@@ -371,7 +415,7 @@ layout: two-cols
 ```
 # Open a new shell
 
-cd mono/apps/back
+cd apps/back
 npm run dev
 
 ```
@@ -381,7 +425,7 @@ npm run dev
 ```
 # Open another new shell
 
-cd mono/packages/utility-library
+cd packages/utility-library
 npm run dev
 
 ```
@@ -432,7 +476,9 @@ layout: fact
 
 <v-clicks>
 
-1. Create a file called `turbo.json` at the root level:
+Shut down the `npm run dev` processes that were spun up in the previous step.
+
+1. Create a file called `turbo.json` at the root level (`./mono`):
 
 ```json
 {
@@ -448,6 +494,34 @@ layout: fact
 
 </v-clicks>
 
+---
+
+
+# What can be configured?
+
+https://turbo.build/repo/docs/reference/configuration
+
+```json
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"]
+    },
+    "test": {
+      "outputs": ["coverage/**"],
+      "dependsOn": ["build"],
+      "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts"],
+      "outputMode": "full"
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}
+
+```
 
 
 ---
@@ -461,6 +535,17 @@ layout: fact
 # ./mono
 
 npm install --workspace front cowsay
+npm ls
+
+mono@0.0.0 /private/tmp/turborepo/mono
+├─┬ back@1.0.0 -> ./apps/back
+│...
+├─┬ component-library@1.0.0 -> ./packages/component-library
+│ └...
+├─┬ front@0.0.0 -> ./apps/front
+│ ├── component-library@1.0.0 deduped -> ./packages/component-library
+│ ├── cowsay@1.6.0
+...
 
 ```
 
@@ -471,11 +556,9 @@ import {say} from 'cowsay'
 
 //...
 
-say({text: "text here"})
+output.textContent = say({ text: json.result });
 
 ```
-
-instead of just the simple text
 
 
 </v-clicks>
