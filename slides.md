@@ -606,6 +606,8 @@ layout: fact
     - https://github.com/vercel/turbo/tree/main/examples/with-docker
 - https://docs.npmjs.com/cli/v10/using-npm/workspaces
 
+- https://fi.wikipedia.org/wiki/Kontinkieli
+
 
 <!--
 
