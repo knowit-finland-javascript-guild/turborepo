@@ -6,13 +6,13 @@ function firstVowelExtracted(input) {
     var vowels = ["a", "e", "i", "o", "u", "y", "ä", "ö"];
     if (!input)
         return ["", ""];
-    var firstChar = input.substr(0, 1);
+    var firstChar = input.substring(0, 1);
     if (!vowels.some(function (v) { return vowels.includes(firstChar); }))
-        return firstVowelExtracted(input.substr(1));
-    return [input.substr(0, 1), input.substr(1)];
+        return firstVowelExtracted(input.substring(1));
+    return [input.substring(0, 1), input.substring(1)];
 }
 function toKontti(input) {
-    var first = input.substr(0, 1);
+    var first = input.substring(0, 1);
     var _a = firstVowelExtracted(input), firstVowel = _a[0], rest = _a[1];
     var appliedFirstVowel = firstVowel === first ? "" : firstVowel;
     return "k".concat("o").concat(rest, " ").concat(first).concat(appliedFirstVowel, "ntti");
